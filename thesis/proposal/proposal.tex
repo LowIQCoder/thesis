@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% ---------- Page formatting ----------
+\setstretch{1.05}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries}
+    {\thesection}
+    {0.8em}
+    {}
+
+\titlespacing*{\section}{0pt}{1.3em}{0.6em}
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries}
+    {\thesubsection}
+    {0.8em}
+    {}
+
+\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+
+\setlist[itemize]{
+    leftmargin=1.6em,
+    itemsep=2pt,
+    topsep=3pt
+}
+
+\setlist[enumerate]{
+    leftmargin=1.8em,
+    itemsep=2pt,
+    topsep=3pt
+}
+
+% ---------- Proposal information ----------
+\newcommand{\ProposalTitle}{
+    Uncertainty-Guided Agentic Reasoning: Investigating the Impact of Uncertainty Scores on LLM Agents
+}
+
+\newcommand{\StudentName}{
+    Marsel Berheev m.berheev@innopolis.university
+}
+
+\newcommand{\SupervisorName}{
+    Vladimir Ivanov  v.ivanov@innopolis.ru 
+}
+
+\begin{document}
+
+% ==================================================
+% Title
+% ==================================================
+
+\begin{center}
+    {\LARGE\bfseries \ProposalTitle\par}
+
+    \vspace{1.2em}
+
+    {\large Student: \StudentName\par}
+
+    \vspace{0.3em}
+
+    {\large Supervisor: \SupervisorName\par}
+\end{center}
+
+\vspace{1.2em}
+
+% ==================================================
+% Abstract
+% ==================================================
+
+\begin{abstract}
+Current agentic systems demonstrate outstanding performance among various types of tasks,
+including code generation and validation. However due to probabilistic nature of models
+and inconsistency in dateset quality, Large Language Models (LLMs), tend to hallucinate,
+generating structurally correct, but logically wrong code snippets. Hallucination detections methods
+vary in their methodology, however one specific subset stands out among others. Present papers demonstrated
+ability of hidden states to store information about models awareness of hallucinated samples. Using this 
+insights it is possible to detect, but not affect generation of hallucinations. In this paper we plan to
+investigate performance of hallucination aware agentic loops. Resulting system will not only be
+able to detect hallucinated samples, but also apply this knowledge for generation of correct code.
+\end{abstract}
+
+% ==================================================
+% 1. Introduction
+% ==================================================
+
+\section{Introduction}
+
+
+
+% ==================================================
+% 2. Novelty and Contributions
+% ==================================================
+
+\section{Novelty and Contributions}
+
+Main contributions of this project include:
+
+\begin{itemize}
+
+    \item \textbf{Hallucination Aware Agents:}
+    AS a result it is planned to get an agent that automatically detect
+    and fix hallucinated code snippets
+
+    \item \textbf{Unified Uncertainty Awareness Score Interface}
+    For high modularity and portability, we plan to introduce unified
+    interface, that will allow to use of different implementations of UAS
+    without complex adapters.
+
+\end{itemize}
+
+% ==================================================
+% 3. State of the Art
+% ==================================================
+
+\section{State-of-the-Art}
+
+Currently, most of papers concentrate on detection, but not
+mitigation of hallucinations
+
+\begin{itemize}
+    \item \textbf{Internal Representations as Markers} - various paper proposed
+    approach that allows use internal states as markers for detection of models
+    uncertainty regarding generation of next token. SUch approaches as SPALMA \cite{azaria2023internalstatellmknows}, HoloScope \cite{du2024haloscopeharnessingunlabeledllm}
+    and Uncertainty Quantification Heads \cite{shelmanov2025headpredictheadquestion}, have different implementations of the same 
+    idea - hidden states of model store information about possible hallucination.
+    \item \textbf{Middle layers are the most informative} - Many researches \cite{azaria2023internalstatellmknows}, \cite{duan2024llmsknowhallucinationempirical} demonstrated 
+    that most useful information usually stored inside middle layers of models
+    \item \textbf{Hallucination detection in code generation} - Some papers \cite{andriushchenko2026efficient} proposed idea
+    to use such uncertainty scores for generating reliable code without hallucination 
+\end{itemize}
+
+Summing up, although we can pretty efficiently detect
+hallucination, till this moment there is no proper way to use
+this information in real, fully autonomous agentic applications 
+
+% ==================================================
+% 4. Goal of the Thesis
+% ==================================================
+
+\section{Goal of the Thesis}
+
+The main goal of this research is to create hallucination aware
+system, that will use information, extracted from internal states,
+to detect and fix hallucinations
+
+Specifically, the research aims to:
+
+\begin{itemize}
+
+    \item Define efficient and clear metrics for hallucination detection
+
+    \item Develop an agentic loop, that will use defined metrics.
+
+    \item Evaluate the proposed approach using appropriate
+    datasets and metrics.
+
+    \item Compare the results with existing methods
+    and analyze the limitations.
+
+\end{itemize}
+
+% ==================================================
+% 5. Detailed Work Plan and Schedule
+% ==================================================
+
+\section{Detailed Work Plan and Schedule}
+
+The whole project planned to span two semesters. First one will be
+dedicated for exploration of current metrics and wys to detect hallucinations.
+Additionally it is planned to create first iteration of simple loop, using
+small local LLM. The second semester will concentrate on improving results
+obtained in first one
+
+\subsection*{Semester 1}
+
+\begin{itemize}
+
+    \item \textbf{Literature review and problem formulation
+    (September--October):}
+
+    \begin{itemize}
+        \item Review relevant scientific literature.
+        \item Identify limitations of existing approaches.
+        \item Define evaluation metrics and experimental setup.
+    \end{itemize}
+
+    \item \textbf{Methodology and preliminary experiments
+    (November--December):}
+
+    \begin{itemize}
+        \item Select appropriate uncertainty metrics and models.
+        \item Conduct preliminary experiments.
+        \item Analyze the initial results.
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Semester 2}
+
+\begin{itemize}
+
+    \item \textbf{Main experiments and evaluation
+    (January--March):}
+
+    \begin{itemize}
+        \item Implement the proposed methodology.
+        \item Conduct experiments and compare results.
+        \item Perform error analysis.
+    \end{itemize}
+
+    \item \textbf{Validation and thesis writing
+    (March--April):}
+
+    \begin{itemize}
+        \item Validate the experimental findings.
+        \item Discuss the results and limitations.
+    \end{itemize}
+
+    \item \textbf{Finalization and defense preparation (May):}
+
+    \begin{itemize}
+        \item Finalize the thesis.
+        \item Prepare the presentation and demonstration.
+    \end{itemize}
+
+\end{itemize}
+
+% ==================================================
+% 6. Conclusion
+% ==================================================
+
+\section{Conclusion}
+
+Summing all up, although current approach demonstrated high performance 
+in detecting hallucinations, still there is no reliable and efficient way
+to use this findings in real world tasks.
+
+This paper is planned to present a solution for this problem by creating
+unified interface for various hidden states based quality metrics, and
+fully autonomous agentic loop with hallucination feedback
+
+% ==================================================
+% References
+% ==================================================
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\end{document}

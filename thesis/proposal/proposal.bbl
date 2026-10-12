@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{azaria2023internalstatellmknows}
+A.~Azaria and T.~Mitchell, ``The internal state of an llm knows when it's lying,'' 2023.
+
+\bibitem{du2024haloscopeharnessingunlabeledllm}
+X.~Du, C.~Xiao, and Y.~Li, ``Haloscope: Harnessing unlabeled llm generations for hallucination detection,'' 2024.
+
+\bibitem{shelmanov2025headpredictheadquestion}
+A.~Shelmanov, E.~Fadeeva, A.~Tsvigun, I.~Tsvigun, Z.~Xie, I.~Kiselev, N.~Daheim, C.~Zhang, A.~Vazhentsev, M.~Sachan, P.~Nakov, and T.~Baldwin, ``A head to predict and a head to question: Pre-trained uncertainty quantification heads for hallucination detection in llm outputs,'' 2025.
+
+\bibitem{duan2024llmsknowhallucinationempirical}
+H.~Duan, Y.~Yang, and K.~Y. Tam, ``Do llms know about hallucination? an empirical investigation of llm's hidden states,'' 2024.
+
+\bibitem{andriushchenko2026efficient}
+G.~Andriushchenko, R.~Garaev, L.~Rvanova, A.~Shelmanov, and V.~V. Ivanov, ``Efficient hallucination detection in automatic code generation,'' in {\em Agentic AI in the Wild: From Hallucinations to Reliable Autonomy}, 2026.
+
+\end{thebibliography}
