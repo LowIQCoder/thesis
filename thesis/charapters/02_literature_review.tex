@@ -1,0 +1,68 @@
+\section{Literature Review}
+\subsection{Hallucination in Coding Tasks}
+Hallucinations have various definitions. One of them was proposed by \cite{tian2025codehalu} together with
+\textbf{CodeHalu} benchmark. Authors define hallucination as "syntactically correct and even semantically plausible, but may not execute as expected or fulfill specified requirements".
+
+Systematic review of hallucination in software engineering tasks by \cite{liu2024exploring}
+presents complete taxonomy on various hallucination types in code generation tasks.
+Additionally authors presented \textbf{HalluCode} benchmark, containing 5563 Python coding tasks
+with reference and hallucinated solutions.
+Similarly to \cite{liu2024exploring} in \cite{sahoo2024comprehensive} authors provide survey on hallucination detection and
+mitigation across various types of models. Authors also provide taxonomy on hallucination dividing
+them on four main categories: \textbf{Contextual Disconnection}, \textbf{Semantic Distortion}, \textbf{Content Hallucination}, and \textbf{Factual Inaccuracy}
+Another review \cite{huang2025survey} categorizes hallucinations on two types, factuality hallucination and faithfulness hallucinations. In addition 
+paper review mitigation strategies, including \textbf{data filtering, RAG, and targeted optimizations} 
+
+Summing all up we can conclude that hallucination refers to situation, then \textbf{models output
+have correct code structure but fails to solve specified problem in efficient way, due to misalignment in internal and external knowledge and poor context quality} 
+
+\subsection{Uncertainty Estimations}
+One of the ways to detect hallucinations was proposed by \cite{fadeeva2024fact}. Authors presented
+a novel fact checking pipeline \textbf{Claim Conditioned Probability} designed especially for
+checking of atomic LLM claims.
+
+Another way to detect hallucination firstly was introduced in \cite{azaria2023internalstatellmknows}. SPALMA
+uses internal model representations to estimate models uncertainty score. THis paper demonstrated
+ability of the models to store uncertainty information inside.
+In other paper \cite{duan2024llms} authors explored approach proposed by \cite{azaria2023internalstatellmknows}. Findings show that
+the most insights for uncertainty estimations were acquired from models \textbf{middle layers} (10-20 for LLama models).
+
+Such approach demonstrated high performance, hence became vary popular among other researchers like 
+\cite{du2024haloscope} that presented HaloScope that also uses features extracted from internal representations, that later passed to simple classifier
+Similarly, \cite{shelmanov2025head} trained special \textbf{Uncertainty Quantification Heads} on hidden states of model
+to detect hallucinated samples.
+
+In \cite{chuang2024lookback} authors proposed \textbf{Lookback Lense}, a light weight method, that
+uses attention weights for input and generated tokens. Proposed approach
+matches performance with more complicated detectors, while using simple linear classifier.
+Authors of \cite{zhang2025icr} made one step further by analyzing not just internal representations but
+their change among layers, proposing \textbf{ICR Probe} and proving a way to distinguish hallucination cause
+based on \textbf{ICR Score} value
+
+Interesting methodology was proposed in \cite{srey2026learning}. Authors assumes that dispersion or variance of internal representations across layers
+may reflect internal model uncertainty. Proposed approach avoids large resource consumption and shows effective generalization across different domains
+
+\subsection{Uncertainty Estimations in Coding}
+In \cite{sharma2025assessingcorrectnessllmbasedcode} authors propose to use uncertainty estimation as a proxy value
+for checking LLMs generated code. In paper authors adapted NLP methods for software engineering tasks
+and  added a check semantic equivalence check for ensuring that model understood the task.
+In contrast \cite{bouchard2026functional} showed that natural-language semantic entropy does not transfer well to code,
+instead proposing \textbf{functional equivalence methods}, that include coding analog of semantic entropy.
+Another approach \cite{andriushchenko2026efficient} uses combination of features to train small transformer model
+for line-level hallucination detection. It outperforms existing UQ baselines across several code domains.
+
+\subsection{Uncertainty Estimations in Agents}
+Only a few paper review role of uncertainty estimates on agentic work. 
+One of such paper \cite{zhao-etal-2025-uncertainty} proposes \textbf{SAUP}, framework that propagates
+uncertainty through each step of agents reasoning, achieving state-of-art performance.
+UALA by \cite{han-etal-2024-towards} tried to integrate uncertainty estimate directly into REACT agent. Generated
+response evaluated on model uncertainty, and based on result continues with CoT or uses external tool for accessing information
+
+\subsection{Research Gap}
+Reviewed papers demonstrated that it is possible to detect model hallucinations in various ways, however current
+mitigation techniques manually work with simple one-shot interactions with users. Only limited number of
+papers explore influence of uncertainty estimators on coding agents.
+Additionally, most of approaches strictly tied to specific architecture, hence for each
+new model fine-tuning of classifiers and features from scratch required. 
+This thesis ties to address this gap by exploring effect of various uncertainty scores
+on agent behaviour in software engineering tasks.

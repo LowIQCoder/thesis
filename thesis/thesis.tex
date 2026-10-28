@@ -1,0 +1,62 @@
+\documentclass[conference]{IEEEtran}
+
+% ---------- Packages ----------
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Proposal information ----------
+\newcommand{\ProposalTitle}{Uncertainty-Guided Agentic Reasoning: Investigating the Impact of Uncertainty Scores on LLM Agents}
+
+\begin{document}
+
+\title{\ProposalTitle}
+
+\author{
+\IEEEauthorblockN{Marsel Berheev}
+\IEEEauthorblockA{\textit{Innopolis University} \\ m.berheev@innopolis.university}
+\and
+\IEEEauthorblockN{Vladimir Ivanov}
+\IEEEauthorblockA{\textit{Innopolis University} \\ v.ivanov@innopolis.ru}
+}
+
+\maketitle
+
+\begin{abstract}
+Current agentic systems demonstrate outstanding performance
+among various types of tasks, including code generation and validation.
+However due to probabilistic nature of models, controversial information, and inconsistency in dateset
+quality, Large Language Models tend to hallucinate, generating structurally 
+correct, but logically false code snippets. Hallucination detections methods
+vary in their methodology, however one specific subset stands out among others.
+Present papers demonstrated a property of hidden states to store information
+related to models awareness. Using this insights it is possible to detect,
+but not affect generation of hallucinations. In this paper we plan to investigate
+performance of hallucination aware agentic loops. Resulting system will not only
+be able to detect hallucinated samples, but also apply this knowledge for 
+generation of correct code
+\end{abstract}
+
+\begin{IEEEkeywords}
+LLM agents, uncertainty-guided reasoning, uncertainty scores, hallucination detection,
+hidden states
+\end{IEEEkeywords}
+
+% ---------- Chapters Import ----------
+\input{charapters/01_introduction.tex}
+\input{charapters/02_literature_review.tex}
+\input{charapters/03_methodology.tex}
+\input{charapters/04_experiments.tex}
+\input{charapters/05_discussion.tex}
+\input{charapters/06_conclusion.tex}
+\input{charapters/07_acknowledgment.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

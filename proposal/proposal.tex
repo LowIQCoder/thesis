@@ -139,9 +139,9 @@ mitigation of hallucinations
     uncertainty regarding generation of next token. SUch approaches as SPALMA \cite{azaria2023internalstatellmknows}, HoloScope \cite{du2024haloscopeharnessingunlabeledllm}
     and Uncertainty Quantification Heads \cite{shelmanov2025headpredictheadquestion}, have different implementations of the same 
     idea - hidden states of model store information about possible hallucination.
-    \item \textbf{Middle layers are the most informative} - Many researches \cite{azaria2023internalstatellmknows}, \cite{duan2024llmsknowhallucinationempirical} demonstrated 
+    \item \textbf{Middle layers are the most informative} - Some researches \cite{azaria2023internalstatellmknows}, \cite{duan2024llmsknowhallucinationempirical} demonstrated 
     that most useful information usually stored inside middle layers of models
-    \item \textbf{Hallucination detection in code generation} - Some papers \cite{andriushchenko2026efficient} proposed idea
+    \item \textbf{Hallucination detection in code generation} - In \cite{andriushchenko2026efficient} proposed idea
     to use such uncertainty scores for generating reliable code without hallucination 
 \end{itemize}
 
@@ -163,16 +163,11 @@ Specifically, the research aims to:
 
 \begin{itemize}
 
-    \item Define efficient and clear metrics for hallucination detection
+    \item Develop an hallucination aware agentic loop based on DeepSeek-Coder and CodeLama
 
-    \item Develop an agentic loop, that will use defined metrics.
+    \item Evaluate the proposed approach using HumanEval and ColuBench datasets and PR-AUC and F1 metrics
 
-    \item Evaluate the proposed approach using appropriate
-    datasets and metrics.
-
-    \item Compare the results with existing methods
-    and analyze the limitations.
-
+    \item Compare the results with existing baselines \cite{andriushchenko2026efficient}, \cite{azaria2023internalstatellmknows}
 \end{itemize}
 
 % ==================================================

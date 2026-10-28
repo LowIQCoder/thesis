@@ -1,0 +1,45 @@
+\section{Introduction} 
+% Current models good at coding tasks
+% Agentic loops became more popular
+% LLMs hallucinate by generating correct structure but false idea/logic
+% Current hallucination detection include hidden states, token prob, predictive entropy, semantic uncertainty
+% Current solutions often only detect but not fix problem
+% No solutions with coding agentic loops
+% This paper explores effect of Uncertainty Score on agents
+Current Large Language Models (LLMs) have demonstrated outstanding performance
+in various types of tasks, including question answering \cite{muludi2024retrieval}, summarization \cite{pu2023summarization}, and most
+importantly software engineering \cite{zhang2026survey}. Integration of LLMs in agentic loops allowed 
+to fully automate many processes and substantially increase efficiency and quality
+of software engineers work.
+
+Even so, truthfulness and quality of LLMs generations still suffers from hallucinations problem.
+Hallucination refers to situation when model answers are structurally correct, but logically or 
+factuality false. This may happen due to many hard to manage factors \cite{huang2025survey} such as poor quality of training
+data, problems with context size or even corrupted context by user itself. Hallucinated
+model output often leads to wrong conclusions, and misleading instructions,
+that may confuse user. Agentic systems suffer from this even more - one poor design decision or incorrect tool
+use may corrupt the whole context, heavily influencing future actions, and in most cases leading to poor software
+quality or completely broken project.
+
+Present papers manly focussed on hallucination detection \cite{azaria2023internalstatellmknows}, \cite{zhang2025icr}, \cite{shelmanov2025head}, \cite{fadeeva2024fact} in various ways of estimating 
+model uncertainty. One of proposed approaches uses model output token probabilities to quantify 
+uncertainty, hence possibly detection hallucinated sample. Another approaches use method of sampling
+different responses on same input promt, focusing on estimating uncertainty of specific fact,
+rather that some token. One of the most promising ways of uncertainty estimation is to use internal
+model representations, collected from various layers, hence capturing hallucination, even before token generated.
+Many approaches also explore combinations of proposed methods to train a separate simple MLP or Attention Head, that
+classify false and true samples.
+
+However, even with sufficient number of papers exploring hallucination detection, there are still limited
+number of research actually fixing false generations \cite{andriushchenko2026efficient}, \cite{zhao-etal-2025-uncertainty}. Even so, in most cases this solutions only oriented
+on simple Q/A tasks or one promt interaction with LLMs, but not complex long context interactions with models, that the case for coding agents.
+
+This research aims to investigates the role of uncertainty score on agent behaviour by integrating various ways of
+hallucination estimators directly into agentic loops. As a result we present a complete agentic system,
+capable of detection and fixing hallucinated samples, hence increasing overall performance.
+
+Main contribution of this paper is the following:
+\begin{itemize}
+    \item \textbf{Hallucination Aware Agentic Loop} - we propose hallucination aware agentic loop, that uses
+    various uncertainty scores, for detecting and fixing hallucinated samples.
+\end{itemize}
